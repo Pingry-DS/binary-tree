@@ -24,13 +24,13 @@ public class BasicBinaryTree<V> implements BinaryTree<V>{
     //TODO implement this
   }
 
+
   /**
-   * Basic constructor initializes data and both children.
-   * @param val the data value to be stored in this node.
-   * @param lchild the one child to be initialized.
-   * @param rchild the other child to be initialized.
+   * Adds a new node to the tree with the given value.
+   * Postcondition: The tree should be complete
+   * @param a the value of the node to add to the tree
    */
-  public BasicBinaryTree(V val, BasicBinaryTree<V> lchild, BasicBinaryTree<V> rchild){
+  public void add(V a){
     //TODO implement this
   }
 

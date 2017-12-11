@@ -1,7 +1,7 @@
 import java.util.Iterator;
 
 public interface BinaryTree<V> {
-	
+
 	/**
 	 * Returns the left child of the current node.
 	 * @return the left child, or null if it does not exist
@@ -19,18 +19,6 @@ public interface BinaryTree<V> {
 	 * @return current value
 	 */
 	public V getValue();
-
-	/**
-	 * Adds a new node to the tree with the given value.
-	 * @param a the value of the node to add to the tree
-	 */
-	public void add(V a);
-
-	/**
-	 * Adds a node and all its children to the tree.
-	 * @param a the tree to add to the tree
-	 */
-	public void add(BinaryTree<V> a);
 
 	/**
 	 * Removes the left child from the current node.
