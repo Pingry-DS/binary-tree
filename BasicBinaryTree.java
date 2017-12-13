@@ -1,3 +1,6 @@
+// You may add to the class signature, but not remove from it.
+// For example you may want to inherit methods from another Binary Tree.
+// Or you may find other standard java interfaces useful.
 public class BasicBinaryTree<V> implements BinaryTree<V>{
 
   /**
