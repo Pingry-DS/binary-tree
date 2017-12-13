@@ -30,10 +30,33 @@ public class BasicBinaryTree<V> implements BinaryTree<V>{
 
   /**
    * Adds a new node to the tree with the given value.
-   * Postcondition: The tree should be complete
+   * The node should go in the highest, left-most available
+   * position in the tree. This means that if nodes are only
+   * ever added using this method, the tree should always
+   * be complete
    * @param a the value of the node to add to the tree
    */
   public void add(V a){
+    //TODO implement this
+  }
+
+  /**
+   * Adds the given node (and therefore all of its children)
+   * as this node's left child. Should not replace an existing
+   * node if it is there. Use removeLeftChild first.
+   * @return whether the add was successful
+   */
+  public boolean addLeftChild(Tree<V>){
+    //TODO implement this
+  }
+
+  /**
+   * Adds the given node (and therefore all of its children)
+   * as this node's right child. Should not replace an existing
+   * node if it is there. Use removeRightChild first.
+   * @return whether the add was successful
+   */
+  public boolean addRightChild(Tree<V>){
     //TODO implement this
   }
 
