@@ -15,7 +15,7 @@ public class TestBasicBinaryTree {
   @Before
   public void setUp(){
     // Build an empty tree called e
-    e = new BinaryTree();
+    e = new BasicBinaryTree();
 
     /*******************************
      Build a tree called a

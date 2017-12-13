@@ -46,6 +46,13 @@ public interface BinaryTree<V> {
 	public int height();
 
 	/**
+	 * Calculates the depth of the given node in this Tree
+	 * @return The node's depth or -1 is the node is not in
+	 * the Tree
+	 */
+	public int depthOf(Tree<V>);
+
+	/**
 	 * Traverses the tree with the current node as the root, in preorder.
 	 * @return an iterator of the tree ata in preorder
 	 */
@@ -68,6 +75,14 @@ public interface BinaryTree<V> {
 	 * @return true if the value is in the tree
 	 */
 	public boolean contains(V value);
+
+	/**
+	 * The total number of nodes in this tree,
+	 * including the root node. Because this datastructure
+	 * supports null values, such nodes still count
+	 * @return The total number of nodes.
+	 */
+	public int size();
 
 	/**
 	 * Removes the node of the given value from the tree, readding all of its
