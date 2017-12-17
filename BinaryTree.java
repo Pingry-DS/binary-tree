@@ -50,7 +50,7 @@ public interface BinaryTree<V> {
 	 * @return The node's depth or -1 is the node is not in
 	 * the Tree
 	 */
-	public int depthOf(Tree<V>);
+	public int depthOf(BinaryTree<V>);
 
 	/**
 	 * Traverses the tree with the current node as the root, in preorder.
