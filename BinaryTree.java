@@ -86,20 +86,20 @@ public interface BinaryTree<V> {
 
 	/**
 	 * Tells whether every leaf is the same depth below this node.
-	 * @return true if adding a node to tree would necessarily increase its height
+	 * @return true iff adding a node to tree would necessarily increase its height
 	 */
 	public boolean isFull();
 
 	/**
 	 * Similar to isFull, but last generation need not be complete.
-	 * @return true if and any holes in the tree appear in the bottom right
+	 * @return true iff any holes in the tree appear in the bottom right
 	 */
 	public boolean isComplete();
 
 	/**
 	 * Tells whether there are roughly the same number of leaves on the left
 	 * and right children.
-	 * @return true if the difference of heights of subtrees at every node
+	 * @return true iff the difference of heights of subtrees at every node
 	 * is no greater than one.
 	 */
 	public boolean isBalanced();
