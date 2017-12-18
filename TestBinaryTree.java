@@ -147,12 +147,11 @@ public class TestBinaryTree {
     }
   }
 
-  //TODO
   @Test
   public void testTraverseinD()
   {
     ArrayList <BasicBinaryTree> inD = new ArrayList<>();
-    inD.add(d3); preD.add(d1); preD.add(d4); preD.add(d); preD.add(d2);
+    inD.add(d3); inD.add(d1); inD.add(d4); inD.add(d); inD.add(d2);
 
     Iterator<String> dIterator = d.traverseIn();
     int i = 0;
@@ -166,7 +165,7 @@ public class TestBinaryTree {
   @Test
   public void testTraverseinC(){
     ArrayList <BasicBinaryTree> inC = new ArrayList<>();
-    inC.add(c3); preC.add(c1); preC.add(c4); preC.add(c); preC.add(d5); preC.add(c2); preC.add(d6);
+    inC.add(c3); inC.add(c1); inC.add(c4); inC.add(c); inC.add(c5); inC.add(c2); inC.add(c6);
 
     Iterator<String> cIterator = c.traverseIn();
     int i = 0;
@@ -187,7 +186,7 @@ public class TestBinaryTree {
     int i = 0;
     while(bIterator.hasNext())
     {
-      assertEquals(bIterator.next(), inB.get(i));
+      assertEquals(bIterator.next(), postB.get(i));
       i++;
     }
   }
@@ -197,8 +196,8 @@ public class TestBinaryTree {
   public void testTraversePostE(){
     Iterator<String> eIterator = b.traversePost();
 
-    assertEqual("e0", eIterator.next())
-    assertFalse(eIterator.hasNext())
+    assertEquals("e0", eIterator.next());
+    assertFalse(eIterator.hasNext());
   }
 
   @Test
@@ -208,7 +207,7 @@ public class TestBinaryTree {
 
   @Test
   public void GetRight(){
-    assertEquals(d2, d.GetLeftChild());
+    assertEquals(d2, d.getLeftChild());
   }
 
   @Test
@@ -223,16 +222,16 @@ public class TestBinaryTree {
 
   @Test
   public void TestRemove1(){
-    d.remove(d1);
-    assertFalse(d.contains(d3));
-    assertFalse(d.contains(d4));
-    assertFalse(d.contains(d1));
+    d.remove("d1");
+    assertFalse(d.contains("d3"));
+    assertFalse(d.contains("d4"));
+    assertFalse(d.contains("d1"));
   }
 
   @Test
   public void TestRemove2(){
-    d.remove(d3);
-    assertFalse(d.contains(d3));
+    d.remove("d3");
+    assertFalse(d.contains("d3"));
   }
 
   @Test
@@ -291,7 +290,7 @@ public class TestBinaryTree {
   @Test
   public void testSizeIsFive()
   {
-    sertEquals(5, d.size());
+    assertEquals(5, d.size());
   }
 
   @Test
