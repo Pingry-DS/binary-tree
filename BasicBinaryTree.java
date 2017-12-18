@@ -46,7 +46,7 @@ public class BasicBinaryTree<V> implements BinaryTree<V>{
    * node if it is there. Use removeLeftChild first.
    * @return whether the add was successful
    */
-  public boolean addLeftChild(BinaryTree<V>){
+  public boolean addLeftChild(BinaryTree<V> t){
     //TODO implement this
   }
 
@@ -56,7 +56,7 @@ public class BasicBinaryTree<V> implements BinaryTree<V>{
    * node if it is there. Use removeRightChild first.
    * @return whether the add was successful
    */
-  public boolean addRightChild(BinaryTree<V>){
+  public boolean addRightChild(BinaryTree<V> t){
     //TODO implement this
   }
 

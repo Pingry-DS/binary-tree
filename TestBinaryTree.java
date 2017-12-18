@@ -1,72 +1,316 @@
-// Order is expected, actual
+import java.util.ArrayList;
+import java.util.Iterator;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.*; // Order is expected, actual
 import org.junit.Test;
 import org.junit.Before;
 
-public class TestBasicBinaryTree {
+public class TestBinaryTree {
 
   private BasicBinaryTree<String> a;
+  private BasicBinaryTree<String> a1;
+  private BasicBinaryTree<String> a2;
+
   private BasicBinaryTree<String> b;
+  private BasicBinaryTree<String> b1;
+  private BasicBinaryTree<String> b2;
+  private BasicBinaryTree<String> b3;
+  private BasicBinaryTree<String> b4;
+
   private BasicBinaryTree<String> c;
+  private BasicBinaryTree<String> c1;
+  private BasicBinaryTree<String> c2;
+  private BasicBinaryTree<String> c3;
+  private BasicBinaryTree<String> c4;
+  private BasicBinaryTree<String> c5;
+  private BasicBinaryTree<String> c6;
+
   private BasicBinaryTree<String> d;
+  private BasicBinaryTree<String> d1;
+  private BasicBinaryTree<String> d2;
+  private BasicBinaryTree<String> d3;
+  private BasicBinaryTree<String> d4;
+
   private BasicBinaryTree<String> e; // an empty one
 
   @Before
   public void setUp(){
-    // Build an empty tree called e
-    e = new BasicBinaryTree();
 
     /*******************************
      Build a tree called a
-
                    a0
                   /
                  a1
                 /
                a2
     **********************************/
-
+    a = new BasicBinaryTree<>("a0");
+    a1 = new BasicBinaryTree<>("a1");
+    a2 = new BasicBinaryTree<>("a2");
+    a.addLeftChild(a1);
+    a1.addLeftChild(a2);
 
 
     /*******************************
      Build a tree called b
-
                    b0
                   /  \
                 b1   b2
                /       \
              b3        b4
     **********************************/
+    b = new BasicBinaryTree<>("b0");
+    b1 = new BasicBinaryTree<>("b1");
+    b2 = new BasicBinaryTree<>("b2");
+    b3 = new BasicBinaryTree<>("b3");
+    b4 = new BasicBinaryTree<>("b4");
+    b1.addLeftChild(b3);
+    b2.addRightChild(b4);
+    b.addLeftChild(b1);
+    b.addRightChild(b2);
 
 
     /*******************************
      Build a tree called c
-
                    c0
                   /  \
                 c1   c2
                / \  /  \
-             d3 d4 c5   c6
+             c3 c4 c5   c6
     **********************************/
-
+    c = new BasicBinaryTree<>();
+    c1 = new BasicBinaryTree<>("c1");
+    c2 = new BasicBinaryTree<>("c2");
+    c3 = new BasicBinaryTree<>("c3");
+    c4 = new BasicBinaryTree<>("c4");
+    c5 = new BasicBinaryTree<>("c5");
+    c6 = new BasicBinaryTree<>("c6");
+    c1.addLeftChild(c3);
+    c1.addRightChild(c4);
+    c2.addLeftChild(c5);
+    c2.addRightChild(c6);
+    c.addRightChild(c2);
+    c.addLeftChild(c1);
 
 
     /*******************************
      Build a tree called d
-
                    d0
                   /  \
                 d1   d2
                / \
-             c3 c4
+             d3 d4
     **********************************/
+    d = new BasicBinaryTree<>("d");
+    d1 = new BasicBinaryTree<>("d1");
+    d2 = new BasicBinaryTree<>("d2");
+    d3 = new BasicBinaryTree<>("d3");
+    d4 = new BasicBinaryTree<>("d4");
+    d.addRightChild(d2);
+    d1.addLeftChild(d3);
+    d1.addRightChild(d4);
+    d.addLeftChild(d1);
 
+    /*******************************
+     Build an empty tree called e
+    **********************************/
+    e = new BasicBinaryTree<>("e0");
   }
 
-  // Write tests hese
   @Test
-  public void someTest(){
+  public void testTraversePreA()
+  {
+    ArrayList <BasicBinaryTree> preA = new ArrayList<>();
+    preA.add(a); preA.add(a1); preA.add(a2);
+
+    Iterator<String> aIterator = a.traversePre();
+    int i = 0;
+    while(aIterator.hasNext())
+    {
+      assertEquals(aIterator.next(), preA.get(i));
+      i++;
+    }
   }
 
+  @Test
+  public void testTraversePreD()
+  {
+    ArrayList <BasicBinaryTree> preD = new ArrayList<>();
+    preD.add(d); preD.add(d1); preD.add(c3); preD.add(c4); preD.add(d2);
+
+    Iterator<String> dIterator = d.traversePre();
+    int i = 0;
+    while(dIterator.hasNext())
+    {
+      assertEquals(dIterator.next(), preD.get(i));
+      i++;
+    }
+  }
+
+  //TODO
+  @Test
+  public void testTraverseinD()
+  {
+    ArrayList <BasicBinaryTree> inD = new ArrayList<>();
+    inD.add(d3); preD.add(d1); preD.add(d4); preD.add(d); preD.add(d2);
+
+    Iterator<String> dIterator = d.traverseIn();
+    int i = 0;
+    while(dIterator.hasNext())
+    {
+      assertEquals(dIterator.next(), inD.get(i));
+      i++;
+    }
+  }
+
+  @Test
+  public void testTraverseinC(){
+    ArrayList <BasicBinaryTree> inC = new ArrayList<>();
+    inC.add(c3); preC.add(c1); preC.add(c4); preC.add(c); preC.add(d5); preC.add(c2); preC.add(d6);
+
+    Iterator<String> cIterator = c.traverseIn();
+    int i = 0;
+    while(cIterator.hasNext())
+    {
+      assertEquals(cIterator.next(), inC.get(i));
+      i++;
+    }
+  }
+
+
+  @Test
+  public void testTraversePostB(){
+    ArrayList <BasicBinaryTree> postB = new ArrayList<>();
+    postB.add(b3); postB.add(b1); postB.add(b4); postB.add(b2); postB.add(b);
+
+    Iterator<String> bIterator = b.traversePost();
+    int i = 0;
+    while(bIterator.hasNext())
+    {
+      assertEquals(bIterator.next(), inB.get(i));
+      i++;
+    }
+  }
+
+
+  @Test
+  public void testTraversePostE(){
+    Iterator<String> eIterator = b.traversePost();
+
+    assertEqual("e0", eIterator.next())
+    assertFalse(eIterator.hasNext())
+  }
+
+  @Test
+  public void GetLeft(){
+    assertEquals(c3, d.getLeftChild().getLeftChild());
+  }
+
+  @Test
+  public void GetRight(){
+    assertEquals(d2, d.GetLeftChild());
+  }
+
+  @Test
+  public void getValue(){
+    assertEquals(d.getLeftChild().getValue(), "d1");
+  }
+
+  @Test
+  public void getRightNull(){
+    assertEquals(a.getRightChild(), null);
+  }
+
+  @Test
+  public void TestRemove1(){
+    d.remove(d1);
+    assertFalse(d.contains(d3));
+    assertFalse(d.contains(d4));
+    assertFalse(d.contains(d1));
+  }
+
+  @Test
+  public void TestRemove2(){
+    d.remove(d3);
+    assertFalse(d.contains(d3));
+  }
+
+  @Test
+  public void testHasChildrenEmpty(){
+   assertFalse(e.hasChildren());
+  }
+
+  @Test
+  public void testHasChildrenBoth(){
+    assertTrue(c.hasChildren());
+  }
+
+  @Test
+  public void testHasChildrenOneChild(){
+    assertTrue(a.hasChildren());
+  }
+
+  @Test
+  public void testHeight0(){
+    assertEquals(0, d.getRightChild().height());
+  }
+
+  @Test
+  public void testHeightNonzero(){
+    assertEquals(2, d.height());
+  }
+
+  @Test
+  public void testDepth0(){
+    assertEquals(0, d.depthOf(d));
+  }
+
+  @Test
+  public void testDepthNonzero(){
+    assertEquals(1, d.depthOf(d.getLeftChild()));
+ }
+
+  @Test
+  public void testContainsTrue()
+  {
+    assertTrue(a.contains("a1"));
+  }
+
+  @Test
+  public void testContainsFalse()
+  {
+    assertFalse(a.contains("rejection"));
+  }
+
+  @Test
+  public void testSizeIsMin()
+  {
+    assertEquals(1, e.size());
+  }
+
+  @Test
+  public void testSizeIsFive()
+  {
+    sertEquals(5, d.size());
+  }
+
+  @Test
+  public void testRemoveSuccessful()
+  {
+    assertTrue(b.remove("b3"));
+    assertFalse(b.contains("b3"));
+  }
+
+  @Test
+  public void testRemoveChildrenAdded()
+  {
+    b.remove("b1");
+    assertTrue(b.contains("b3"));
+  }
+
+  @Test
+  public void testRemoveFailed()
+  {
+    assertFalse(b.remove("dat"));
+  }
 }
