@@ -117,10 +117,81 @@ public class TestBinaryTree {
     e = new BasicBinaryTree<>("e0");
   }
 
-  //@Test
-  //isFull
-  //isComplete
-  //isBalanced
+  @Test
+  public void testIsFullTrue0(){
+    assertTrue(c.isFull());
+  }
+
+  @Test
+  public void testIsFullTrue1(){
+    assertTrue(e.isFull());
+  }
+
+  @Test
+  public void testIsFullFalse0(){
+    assertFalse(a.isFull());
+  }
+
+  @Test
+  public void testIsFullFalse1(){
+    assertFalse(b.isFull());
+  }
+
+  @Test
+  public void testIsFullFalse2(){
+    assertFalse(d.isFull());
+  }
+
+  @Test
+  public void testIsCompleteTrue0(){
+    assertTrue(c.isComplete());
+  }
+
+  @Test
+  public void testIsCompleteTrue1(){
+    assertTrue(d.isComplete());
+  }
+
+  @Test
+  public void testIsCompleteTrue2(){
+    assertTrue(e.isComplete());
+  }
+
+  @Test
+  public void testIsCompleteFalse0(){
+    assertFalse(a.isComplete());
+  }
+
+  @Test
+  public void testIsCompleteFalse1(){
+    assertFalse(b.isComplete());
+  }
+
+  @Test
+  public void testIsBalancedTrue0(){
+    assertTrue(b.isBalanced());
+  }
+
+  @Test
+  public void testIsBalancedTrue1(){
+    assertTrue(c.isBalanced());
+  }
+
+  @Test
+  public void testIsBalancedTrue2(){
+    assertTrue(d.isBalanced());
+  }
+
+  @Test
+  public void testIsBalancedTrue3(){
+    assertTrue(e.isBalanced());
+  }
+
+  @Test
+  public void testIsBalancedFalse0(){
+    assertFalse(a.isBalanced());
+  }
+
 
   @Test
   public void testTraversePreA()
@@ -165,7 +236,6 @@ public class TestBinaryTree {
       assertEquals(dIterator.next(), inD.get(i).getValue());
       i++;
     }
-    assertFalse(true);
   }
 
   @Test
@@ -284,4 +354,5 @@ public class TestBinaryTree {
   {
     assertEquals(5, d.size());
   }
+  
 }
