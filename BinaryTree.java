@@ -24,13 +24,13 @@ public interface BinaryTree<V> {
 	 * Removes the left child from the current node.
 	 * @return the node which was removed, null if there is no left child
 	 */
-	public BinaryTree removeLeftChild();
+	public BinaryTree<V> removeLeftChild();
 
 	/**
 	 * Removes the right child from the current node.
 	 * @return the node which was removed, null if there is no right child
 	 */
-	public BinaryTree removeRightChild();
+	public BinaryTree<V> removeRightChild();
 
 	/**
 	 * Returns if the current node has any children.
