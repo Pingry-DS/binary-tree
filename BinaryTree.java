@@ -85,13 +85,6 @@ public interface BinaryTree<V> {
 	public int size();
 
 	/**
-	 * Removes the node of the given value from the tree, readding all of its
-	 * children.
-	 * @return true if the removal was successful
-	 */
-	public boolean remove(V value);
-
-	/**
 	 * Tells whether every leaf is the same depth below this node.
 	 * @return true if adding a node to tree would necessarily increase its height
 	 */

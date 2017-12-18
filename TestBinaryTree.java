@@ -89,8 +89,8 @@ public class TestBinaryTree {
     c1.addRightChild(c4);
     c2.addLeftChild(c5);
     c2.addRightChild(c6);
-    c.addRightChild(c2);
     c.addLeftChild(c1);
+    c.addRightChild(c2);
 
 
     /*******************************
@@ -106,16 +106,21 @@ public class TestBinaryTree {
     d2 = new BasicBinaryTree<>("d2");
     d3 = new BasicBinaryTree<>("d3");
     d4 = new BasicBinaryTree<>("d4");
+    d.addLeftChild(d1);
     d.addRightChild(d2);
     d1.addLeftChild(d3);
     d1.addRightChild(d4);
-    d.addLeftChild(d1);
 
     /*******************************
      Build an empty tree called e
     **********************************/
     e = new BasicBinaryTree<>("e0");
   }
+
+  //@Test
+  //isFull
+  //isComplete
+  //isBalanced
 
   @Test
   public void testTraversePreA()
@@ -127,7 +132,7 @@ public class TestBinaryTree {
     int i = 0;
     while(aIterator.hasNext())
     {
-      assertEquals(aIterator.next(), preA.get(i));
+      assertEquals(aIterator.next(), preA.get(i).getValue());
       i++;
     }
   }
@@ -136,13 +141,13 @@ public class TestBinaryTree {
   public void testTraversePreD()
   {
     ArrayList <BasicBinaryTree> preD = new ArrayList<>();
-    preD.add(d); preD.add(d1); preD.add(c3); preD.add(c4); preD.add(d2);
+    preD.add(d); preD.add(d1); preD.add(d3); preD.add(d4); preD.add(d2);
 
     Iterator<String> dIterator = d.traversePre();
     int i = 0;
     while(dIterator.hasNext())
     {
-      assertEquals(dIterator.next(), preD.get(i));
+      assertEquals(dIterator.next(), preD.get(i).getValue());
       i++;
     }
   }
@@ -157,9 +162,10 @@ public class TestBinaryTree {
     int i = 0;
     while(dIterator.hasNext())
     {
-      assertEquals(dIterator.next(), inD.get(i));
+      assertEquals(dIterator.next(), inD.get(i).getValue());
       i++;
     }
+    assertFalse(true);
   }
 
   @Test
@@ -201,13 +207,13 @@ public class TestBinaryTree {
   }
 
   @Test
-  public void GetLeft(){
-    assertEquals(c3, d.getLeftChild().getLeftChild());
+  public void testGetLeft(){
+    assertEquals(c3, c.getLeftChild().getLeftChild());
   }
 
   @Test
-  public void GetRight(){
-    assertEquals(d2, d.getLeftChild());
+  public void testGetRight(){
+    assertEquals(d2, d.getRightChild());
   }
 
   @Test
@@ -218,20 +224,6 @@ public class TestBinaryTree {
   @Test
   public void getRightNull(){
     assertEquals(a.getRightChild(), null);
-  }
-
-  @Test
-  public void TestRemove1(){
-    d.remove("d1");
-    assertFalse(d.contains("d3"));
-    assertFalse(d.contains("d4"));
-    assertFalse(d.contains("d1"));
-  }
-
-  @Test
-  public void TestRemove2(){
-    d.remove("d3");
-    assertFalse(d.contains("d3"));
   }
 
   @Test
@@ -291,25 +283,5 @@ public class TestBinaryTree {
   public void testSizeIsFive()
   {
     assertEquals(5, d.size());
-  }
-
-  @Test
-  public void testRemoveSuccessful()
-  {
-    assertTrue(b.remove("b3"));
-    assertFalse(b.contains("b3"));
-  }
-
-  @Test
-  public void testRemoveChildrenAdded()
-  {
-    b.remove("b1");
-    assertTrue(b.contains("b3"));
-  }
-
-  @Test
-  public void testRemoveFailed()
-  {
-    assertFalse(b.remove("dat"));
   }
 }
