@@ -211,7 +211,7 @@ public class TestBinaryTree {
   @Test
   public void testTraversePreD()
   {
-    ArrayList <BasicBinaryTree> preD = new ArrayList<>();
+    ArrayList<BasicBinaryTree> preD = new ArrayList<>();
     preD.add(d); preD.add(d1); preD.add(d3); preD.add(d4); preD.add(d2);
 
     Iterator<String> dIterator = d.traversePre();
@@ -247,7 +247,7 @@ public class TestBinaryTree {
     int i = 0;
     while(cIterator.hasNext())
     {
-      assertEquals(cIterator.next(), inC.get(i));
+      assertEquals(cIterator.next(), inC.get(i).getValue());
       i++;
     }
   }
@@ -262,7 +262,7 @@ public class TestBinaryTree {
     int i = 0;
     while(bIterator.hasNext())
     {
-      assertEquals(bIterator.next(), postB.get(i));
+      assertEquals(bIterator.next(), postB.get(i).getValue());
       i++;
     }
   }
@@ -270,7 +270,7 @@ public class TestBinaryTree {
 
   @Test
   public void testTraversePostE(){
-    Iterator<String> eIterator = b.traversePost();
+    Iterator<String> eIterator = e.traversePost();
 
     assertEquals("e0", eIterator.next());
     assertFalse(eIterator.hasNext());
