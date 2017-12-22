@@ -10,4 +10,8 @@ public class BST<V> implements BinaryTree<V> {
   public void add(V a){
     //TODO implement this
   }
+  
+  public V remove(V a) {
+	//TODO implement this
+  }
 }
