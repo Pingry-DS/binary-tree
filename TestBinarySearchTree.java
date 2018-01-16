@@ -62,23 +62,23 @@ public class TestBinarySearchTree {
 
   @Test
   public void testAdd0(){
-	  a.add(new BinarySearchTree<String>(3));
+	  a.add(new BinarySearchTree<Integer>(3));
 	  assertEquals(3, a.getRightChild().getRightChild().getValue());
   }
 
   @Test
   public void testAdd1(){
-	  b.add(new BinarySearchTree<String>(2));
+	  b.add(new BinarySearchTree<Integer>(2));
 	  assertEquals(2, a.getLeftChild().getLeftChild().getValue());
   }
   @Test
   public void testAdd2(){
-	  b.add(new BinarySearchTree<String>(6));
+	  b.add(new BinarySearchTree<Integer>(6));
 	  assertEquals(6, a.getRightChild().getLeftChild().getValue());
   }
   @Test
   public void testAdd3(){
-	  b.add(new BinarySearchTree<String>(7));
+	  b.add(new BinarySearchTree<Integer>(7));
 	  assertEquals(7, a.getRightChild().getRightChild().getLeftChild().getValue());
   }
   
