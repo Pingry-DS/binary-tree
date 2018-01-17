@@ -7,17 +7,17 @@ import org.junit.Before;
 
 public class TestBinarySearchTree {
 
-  private BinarySearchTree<Integer> a;
-  private BinarySearchTree<Integer> a1;
-  private BinarySearchTree<Integer> a2;
+  private BST<Integer> a;
+  private BST<Integer> a1;
+  private BST<Integer> a2;
 
-  private BinarySearchTree<Integer> b;
-  private BinarySearchTree<Integer> b1;
-  private BinarySearchTree<Integer> b2;
-  private BinarySearchTree<Integer> b3;
-  private BinarySearchTree<Integer> b4;
+  private BST<Integer> b;
+  private BST<Integer> b1;
+  private BST<Integer> b2;
+  private BST<Integer> b3;
+  private BST<Integer> b4;
 
-  private BinarySearchTree<Integer> e; // an empty one
+  private BST<Integer> e; // an empty one
 
   @Before
   public void setUp(){
@@ -28,9 +28,9 @@ public class TestBinarySearchTree {
                   / \
                  0  2
     **********************************/
-    a = new BinarySearchTree<>(1);
-    a1 = new BinarySearchTree<>(0);
-    a2 = new BinarySearchTree<>(2);
+    a = new BST<>(1);
+    a1 = new BST<>(0);
+    a2 = new BST<>(2);
     a.add(a1);
     a.add(a2);
 
@@ -43,11 +43,11 @@ public class TestBinarySearchTree {
                  \     \
                   4     8
     **********************************/
-    b = new BinarySearchTree<>(5);
-    b1 = new BinarySearchTree<>(3);
-    b2 = new BinarySearchTree<>(4);
-    b3 = new BinarySearchTree<>(7);
-    b4 = new BinarySearchTree<>(8);
+    b = new BST<>(5);
+    b1 = new BST<>(3);
+    b2 = new BST<>(4);
+    b3 = new BST<>(7);
+    b4 = new BST<>(8);
     b.add(b3);
     b.add(b4);
     b.add(b1);
@@ -57,40 +57,40 @@ public class TestBinarySearchTree {
     /*******************************
      Build an empty tree called e
     **********************************/
-    e = new BinarySearchTree<>(0);
+    e = new BST<>(0);
   }
 
   @Test
   public void testAdd0(){
-	  a.add(new BinarySearchTree<Integer>(3));
-	  assertEquals(3, a.getRightChild().getRightChild().getValue());
+	  a.add(new BST<Integer>(3));
+	  assertEquals(new Integer(3), a.getRightChild().getRightChild().getValue());
   }
 
   @Test
   public void testAdd1(){
-	  b.add(new BinarySearchTree<Integer>(2));
-	  assertEquals(2, a.getLeftChild().getLeftChild().getValue());
+	  b.add(new BST<Integer>(2));
+	  assertEquals(new Integer(2), b.getLeftChild().getLeftChild().getValue());
   }
   @Test
   public void testAdd2(){
-	  b.add(new BinarySearchTree<Integer>(6));
-	  assertEquals(6, a.getRightChild().getLeftChild().getValue());
+	  b.add(new BST<Integer>(6));
+	  assertEquals(new Integer(6), b.getRightChild().getLeftChild().getValue());
   }
   @Test
   public void testAdd3(){
-	  b.add(new BinarySearchTree<Integer>(7));
-	  assertEquals(7, a.getRightChild().getRightChild().getLeftChild().getValue());
+	  b.add(new BST<Integer>(7));
+	  assertEquals(new Integer(7), b.getRightChild().getRightChild().getLeftChild().getValue());
   }
   
   @Test
   public void testRemove0(){
-	  assertEquals(2, a.remove(new Integer(2)));
+	  assertEquals(new Integer(2), a.remove(new Integer(2)));
   }
   
   @Test
   public void testRemove1(){
-	  a.remove(new Integer(7));
-	  assertEquals(8, a.getRightChild().get());
+	  b.remove(new Integer(7));
+	  assertEquals(new Integer(8), b.getRightChild().getValue());
   }
   
 }
